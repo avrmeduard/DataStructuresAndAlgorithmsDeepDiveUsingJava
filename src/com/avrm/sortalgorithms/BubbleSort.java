@@ -1,30 +1,33 @@
 package com.avrm.sortalgorithms;
 
+import java.util.Arrays;
+
 public class BubbleSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {20, 35, -15, 7, 55, 1, -22};
-        bubbleSort(arr);
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        int[] array = {20, 35, -15, 7, 55, 1, -22};
+        bubbleSort(array);
+        System.out.println(Arrays.toString(array));
     }
 
-    public static void bubbleSort(int[] arr) {
+    public static void bubbleSort(int[] array) {
         int temp;
-        for (int i = arr.length-1; i > 0; i--) {
+        for (int i = array.length-1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (arr[j] > arr[j+1]) {
-                    temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+                if (array[j] > array[j+1]) {
+                    swapElement(array, j, j+1);
                 }
             }
         }
     }
 
-    public static void swapElement(int[] arr, int i, int j) {
-        
+    public static void swapElement(int[] array, int i, int j) {
+        if (i == j) {
+            return;
+        }
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
